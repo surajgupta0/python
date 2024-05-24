@@ -1,0 +1,5 @@
+print('**************************Brand name Generator***************************')
+print('To create a brand name of you city you need to enter following details')
+city = input('Enetr your city name: ')
+pet = input('Enter you pet name: ')
+print(f'Your brand name can be {city.capitalize()} {pet.capitalize()}')
