@@ -3,7 +3,7 @@ import random
 print('******************hangman**********************')
 word = random.choice(wordlist.word_list)
 og_word = word
-guess = '_' * len(word)
+guess = '_ ' * len(word)
 fault = 0
 win = len(word)
 can_play = 1
@@ -31,13 +31,14 @@ def print_hangman(hangman):
             print(j,end='')
         print()
     print()
+    
 while can_play:
     
     print(guess)
     char = str(input(f'Choose a letter you have {7-fault} chance: '))
     word , index = char_finder(word,char)
     if index >= 0:
-        guess = guess[:index] + char + guess[index+1:]
+        guess = guess[:2*index] + char + guess[2*index+1:]
         win -= 1
         print('')
     else:
@@ -50,6 +51,8 @@ while can_play:
     print_hangman(hang_man)        
          
     if win == 0:
+        print(guess)
+        print(f"Your word is {og_word}.")
         print("You Win")
         can_play = 0
     elif fault >= 7:
